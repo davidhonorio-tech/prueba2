@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desafío Web Matemático – Fibonacci &amp; Primos</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       1. PORTADA / ENCABEZADO
+  =================================================== -->
+  <header id="portada">
+    <div class="header-inner">
+      <div class="header-badge">DESAFÍO WEB MATEMÁTICO</div>
+      <h1>Fibonacci<br /><span class="accent">&amp; Primos</span></h1>
+      <p class="autor">David · Proyecto de Matemática Aplicada</p>
+    </div>
+    <div class="header-deco" aria-hidden="true">
+      <span>0</span><span>1</span><span>1</span><span>2</span>
+      <span>3</span><span>5</span><span>8</span><span>13</span>
+      <span>21</span><span>34</span><span>55</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================================================
+         2. CONTEXTO DEL PROBLEMA
+    =================================================== -->
+    <section class="seccion" id="contexto">
+      <div class="seccion-inner">
+        <h2><span class="num">01</span> Contexto del Problema</h2>
+        <p>
+          La naturaleza y las matemáticas se cruzan de maneras sorprendentes. En la
+          distribución de pétalos de flores, la ramificación de árboles o la espiral de
+          una caracola, aparece repetidamente la misma secuencia: <strong>la serie de
+          Fibonacci</strong>. Este proyecto propone una herramienta interactiva que
+          permite explorar esa secuencia y, a la vez, identificar cuáles de sus términos
+          son <strong>números primos</strong> — aquellos que solo son divisibles por 1 y
+          por sí mismos.
+        </p>
+        <p>
+          La pregunta que guía el proyecto es: <em>¿cuántos números primos aparecen en
+          los primeros N términos de Fibonacci?</em> Esto tiene aplicaciones prácticas
+          en criptografía, análisis de patrones y teoría de números.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         3. EXPLICACIÓN DEL ALGORITMO
+    =================================================== -->
+    <section class="seccion seccion-alt" id="algoritmo">
+      <div class="seccion-inner">
+        <h2><span class="num">02</span> Explicación del Algoritmo</h2>
+
+        <div class="dos-columnas">
+          <div class="columna">
+            <h3>Serie de Fibonacci</h3>
+            <p>
+              La serie se construye con una regla simple: cada término es la suma de los
+              dos anteriores. Parte de <strong>0</strong> y <strong>1</strong>:
+            </p>
+            <div class="formula">
+              F(n) = F(n-1) + F(n-2)
+            </div>
+            <p>
+              En el código se usan tres variables simples (<code>a</code>, <code>b</code>,
+              <code>c</code>) dentro de un ciclo, sin vectores ni arreglos, tal como
+              indica la guía.
+            </p>
+          </div>
+
+          <div class="columna">
+            <h3>Número Primo</h3>
+            <p>
+              Un número es primo si su único divisor exacto, aparte de 1, es él mismo.
+              Se cuenta cuántos divisores tiene mediante un bucle; si el contador es
+              exactamente <strong>2</strong>, el número es primo.
+            </p>
+            <div class="formula">
+              divisores(n) = 2 → primo
+            </div>
+            <p>
+              Para cada término de Fibonacci generado, se ejecuta esta verificación y se
+              registra si es o no primo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         4. FORMULARIO DE ENTRADA + 5. BOTÓN + 6. RESULTADO
+    =================================================== -->
+    <section class="seccion" id="calculadora">
+      <div class="seccion-inner">
+        <h2><span class="num">03</span> Calculadora Interactiva</h2>
+        <p class="subtitulo-form">
+          Ingresa cuántos términos de Fibonacci quieres analizar y el programa
+          identificará cuáles son primos.
+        </p>
+
+        <!-- Formulario de entrada (sin prompt, sin querySelector) -->
+        <form id="formulario" onsubmit="return false;">
+          <div class="campo-grupo">
+            <label for="cantidad">Número de términos a calcular:</label>
+            <input
+              type="number"
+              id="cantidad"
+              name="cantidad"
+              min="1"
+              max="70"
+              placeholder="Ej: 15"
+              required
+            />
+            <small>Mínimo 1 · Máximo 70 términos</small>
+          </div>
+
+          <!-- Botón de ejecución -->
+          <button type="button" id="btnCalcular" onclick="calcular()">
+            Calcular
+          </button>
+        </form>
+
+        <!-- Área de resultado -->
+        <div id="resultado" class="resultado-area" aria-live="polite">
+          <!-- El contenido se inyecta aquí desde script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         7. CONCLUSIÓN
+    =================================================== -->
+    <section class="seccion seccion-alt" id="conclusion">
+      <div class="seccion-inner">
+        <h2><span class="num">04</span> Conclusión</h2>
+        <p>
+          Este proyecto demuestra que los algoritmos matemáticos más elegantes no
+          requieren estructuras de datos complejas. Con solo tres variables y dos bucles
+          anidados es posible generar la serie de Fibonacci completa e identificar sus
+          términos primos, lo cual tendría aplicaciones directas en la generación de
+          claves criptográficas o en el análisis de secuencias naturales.
+        </p>
+        <p>
+          La combinación de Fibonacci y números primos ilustra cómo la matemática pura
+          puede traducirse en herramientas web útiles, interactivas y accesibles para
+          cualquier usuario, sin importar el dispositivo que utilice.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         8. ENLACES DEL PROYECTO
+    =================================================== -->
+    <section class="seccion" id="enlaces">
+      <div class="seccion-inner">
+        <h2><span class="num">05</span> Enlaces del Proyecto</h2>
+        <div class="enlaces-grid">
+          <a href="https://github.com/davidhonorio-tech/desafio-fibonacci-primos."
+             target="_blank" rel="noopener" class="enlace-card">
+            <span class="enlace-icono">⌥</span>
+            <span class="enlace-texto">
+              <strong>Repositorio GitHub</strong>
+              https://github.com/davidhonorio-tech/desafio-fibonacci-primos.
+            </span>
+          </a>
+          <a href="https://davidhonorio-tech.github.io/desafio-fibonacci-primos./"
+             target="_blank" rel="noopener" class="enlace-card">
+            <span class="enlace-icono">◈</span>
+            <span class="enlace-texto">
+              <strong>Sitio Desplegado</strong>
+              https://davidhonorio-tech.github.io/desafio-fibonacci-primos./
+            </span>
+          </a>
+        </div>
+        <p class="nota-links">
+          * Reemplaza <code>TU-USUARIO</code> con tu nombre de usuario de GitHub
+          antes de publicar.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Desafío Web Matemático · David · La Paz, Bolivia</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

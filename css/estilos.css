@@ -1,0 +1,515 @@
+/* =====================================================
+   DESAFÍO WEB MATEMÁTICO – estilos.css
+   Diseño responsivo sin flexbox.
+   Layout con display:inline-block, floats y porcentajes.
+===================================================== */
+
+/* ---------- Variables de color y tipografía ---------- */
+:root {
+  --negro:    #0a0a0f;
+  --oscuro:   #111118;
+  --panel:    #17171f;
+  --borde:    #2a2a38;
+  --texto:    #d4d4e8;
+  --suave:    #7878a0;
+  --acento:   #e8c547;
+  --acento2:  #5e8aff;
+  --primo:    #47e8a0;
+  --noprime:  #ff6b6b;
+  --radio:    8px;
+  --fuente-titulo: 'Georgia', serif;
+  --fuente-body:   'Courier New', monospace;
+}
+
+/* ---------- Reset básico ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--negro);
+  color: var(--texto);
+  font-family: var(--fuente-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ---------- HEADER ---------- */
+header#portada {
+  background-color: var(--oscuro);
+  border-bottom: 2px solid var(--acento);
+  padding: 60px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.header-badge {
+  display: inline-block;
+  border: 1px solid var(--acento);
+  color: var(--acento);
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+header h1 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: normal;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+header h1 .accent {
+  color: var(--acento);
+}
+
+.autor {
+  color: var(--suave);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Números decorativos en el fondo del header */
+.header-deco {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.header-deco span {
+  position: absolute;
+  color: rgba(232, 197, 71, 0.05);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3rem, 10vw, 9rem);
+  pointer-events: none;
+  user-select: none;
+}
+
+.header-deco span:nth-child(1)  { top: 5%;  left: 2%; }
+.header-deco span:nth-child(2)  { top: 10%; left: 12%; }
+.header-deco span:nth-child(3)  { top: 60%; left: 5%; }
+.header-deco span:nth-child(4)  { top: 20%; right: 8%; }
+.header-deco span:nth-child(5)  { top: 70%; right: 3%; }
+.header-deco span:nth-child(6)  { top: 40%; left: 55%; }
+.header-deco span:nth-child(7)  { bottom: 5%; left: 30%; }
+.header-deco span:nth-child(8)  { top: 5%;  right: 20%; }
+.header-deco span:nth-child(9)  { bottom: 10%; right: 15%; }
+.header-deco span:nth-child(10) { top: 35%; left: 20%; }
+.header-deco span:nth-child(11) { bottom: 5%; left: 60%; }
+
+/* ---------- SECCIONES ---------- */
+.seccion {
+  padding: 64px 24px;
+}
+
+.seccion-alt {
+  background-color: var(--oscuro);
+}
+
+.seccion-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seccion h2 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: normal;
+  color: #ffffff;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.seccion h2 .num {
+  color: var(--acento);
+  font-size: 0.8em;
+  margin-right: 12px;
+  letter-spacing: 2px;
+}
+
+.seccion p {
+  color: var(--texto);
+  margin-bottom: 16px;
+  max-width: 720px;
+}
+
+/* ---------- DOS COLUMNAS (inline-block, sin flex) ---------- */
+.dos-columnas {
+  font-size: 0; /* elimina espacio entre inline-block */
+}
+
+.columna {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  font-size: 16px;
+  padding-right: 24px;
+}
+
+.columna:last-child {
+  padding-right: 0;
+  padding-left: 24px;
+}
+
+.columna h3 {
+  color: var(--acento2);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.formula {
+  background-color: var(--panel);
+  border-left: 3px solid var(--acento);
+  padding: 12px 18px;
+  font-family: var(--fuente-body);
+  font-size: 1rem;
+  color: var(--acento);
+  margin: 16px 0;
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+/* ---------- FORMULARIO ---------- */
+.subtitulo-form {
+  margin-bottom: 28px;
+}
+
+#formulario {
+  background-color: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 32px;
+  max-width: 480px;
+}
+
+.campo-grupo {
+  margin-bottom: 24px;
+}
+
+.campo-grupo label {
+  display: block;
+  color: var(--suave);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.campo-grupo input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--oscuro);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: #ffffff;
+  font-family: var(--fuente-body);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.campo-grupo input[type="number"]:focus {
+  border-color: var(--acento);
+}
+
+.campo-grupo small {
+  display: block;
+  color: var(--suave);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+#btnCalcular {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--acento);
+  color: var(--negro);
+  border: none;
+  border-radius: var(--radio);
+  font-family: var(--fuente-body);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#btnCalcular:hover {
+  background-color: #f5d96a;
+}
+
+#btnCalcular:active {
+  transform: scale(0.98);
+}
+
+/* ---------- ÁREA DE RESULTADO ---------- */
+.resultado-area {
+  margin-top: 36px;
+  min-height: 20px;
+}
+
+/* Tarjeta de resumen */
+.resumen-card {
+  background-color: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+
+.resumen-card h3 {
+  color: var(--acento);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.stat-bloque {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  display: block;
+  color: var(--suave);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stat-valor {
+  display: block;
+  font-size: 2rem;
+  font-family: var(--fuente-titulo);
+  color: #ffffff;
+}
+
+/* Tabla de términos */
+.tabla-titulo {
+  color: var(--suave);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.tabla-terminos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla-terminos thead tr {
+  background-color: var(--panel);
+  border-bottom: 2px solid var(--borde);
+}
+
+.tabla-terminos th {
+  text-align: left;
+  padding: 10px 14px;
+  color: var(--suave);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.tabla-terminos td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--borde);
+  font-family: var(--fuente-body);
+}
+
+.tabla-terminos tr:last-child td {
+  border-bottom: none;
+}
+
+.fila-primo td {
+  background-color: rgba(71, 232, 160, 0.07);
+}
+
+.badge-primo {
+  display: inline-block;
+  background-color: rgba(71, 232, 160, 0.15);
+  color: var(--primo);
+  border: 1px solid var(--primo);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.badge-compuesto {
+  display: inline-block;
+  background-color: rgba(255, 107, 107, 0.1);
+  color: var(--noprime);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* Mensaje de error */
+.error-msg {
+  color: var(--noprime);
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: var(--radio);
+  padding: 14px 18px;
+  font-size: 14px;
+}
+
+/* ---------- ENLACES ---------- */
+.enlaces-grid {
+  font-size: 0;
+  margin-bottom: 16px;
+}
+
+.enlace-card {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  background-color: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 20px 22px;
+  text-decoration: none;
+  color: var(--texto);
+  margin-right: 4%;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.enlace-card:last-child {
+  margin-right: 0;
+}
+
+.enlace-card:hover {
+  border-color: var(--acento2);
+}
+
+.enlace-icono {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--acento);
+  margin-bottom: 8px;
+}
+
+.enlace-texto strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.nota-links {
+  color: var(--suave);
+  font-size: 12px;
+}
+
+code {
+  background-color: var(--panel);
+  border: 1px solid var(--borde);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: var(--fuente-body);
+  font-size: 0.9em;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: var(--oscuro);
+  border-top: 1px solid var(--borde);
+  text-align: center;
+  padding: 28px 24px;
+  color: var(--suave);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* =====================================================
+   DISEÑO RESPONSIVO
+===================================================== */
+
+/* Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .columna {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-bottom: 24px;
+  }
+
+  .columna:last-child {
+    padding-left: 0;
+  }
+
+  .stat-bloque {
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .enlace-card {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  #formulario {
+    max-width: 100%;
+  }
+}
+
+/* Celular (≤ 480px) */
+@media (max-width: 480px) {
+  .seccion {
+    padding: 44px 16px;
+  }
+
+  header#portada {
+    padding: 44px 16px 32px;
+  }
+
+  .tabla-terminos {
+    font-size: 12px;
+  }
+
+  .tabla-terminos th,
+  .tabla-terminos td {
+    padding: 8px 10px;
+  }
+
+  .resumen-card {
+    padding: 18px;
+  }
+}
